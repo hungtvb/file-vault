@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: filevault
+  datasource:
+    url: jdbc:postgresql://localhost:5432/filevault
+    username: filevault
+    password: filevault
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:dev-only-secret-change-me-please-0123456789}
+    access-ttl: 15m
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
